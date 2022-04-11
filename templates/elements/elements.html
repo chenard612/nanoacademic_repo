@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>Periodic Table of HTML elements</title>
+		<style>html {
+  background: #787878;
+  /* Old browsers */
+  background: radial-gradient(ellipse at center, #454545 0%, #787878 100%);
+  background-size: cover;
+  height: 100%;
+  font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif; }
+
+body {
+  width: 90%;
+  width: 90vw;
+  margin: 1vh auto;
+  color: black; }
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #FFF; }
+
+.elements {
+  font-size: 10px; }
+  @media screen and (min-width: 600px) {
+    .elements {
+      font-size: calc(10px + 8 * ((100vw - 600px) / 1320)); } }
+  @media screen and (min-width: 1920px) {
+    .elements {
+      font-size: 18px; } }
+
+.element {
+  display: none; }
+.name{
+	margin-top:4%;
+	font-size: 70%;
+}
+.symbol{
+	font-size: 90%;
+	text-decoration: bold;
+}
+.key {
+  display: none; }
+.element:hover{
+	cursor:pointer;
+}
+@media screen and (min-width: 600px) {
+  .row {
+    display: flex;
+    text-align: center;
+    height: 6vmin;
+		margin-top:0.5%;
+    justify-content: space-around; }
+  .f-block .row {
+    justify-content: flex-end; }
+  .element {
+    display: block;
+    flex: 4vw 0 0;
+    color: black;
+    box-sizing: border-box;
+    border-radius: 3px;
+    margin: 1px;
+    text-decoration: none; }
+  .description {
+    display: none; }
+  .description:target {
+    display: block; }
+  .key {
+    display: block;
+    padding: 0;
+    width: 60%;
+    max-width: 650px;
+    list-style-type: none;
+    color: #fff;
+    line-height: 1.8;
+    font-weight: normal; }
+  .key li {
+    display: inline-block;
+    margin: 0 .2rem;
+    position: relative;
+    padding-left: 20px;
+    cursor: pointer; }
+  .key li:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: 16px;
+    height: 16px; } }
+
+.description {
+  padding: 1em;
+  margin: 2em 0;
+  text-overflow: ellipsis; }
+  .description h2 {
+    margin: 0; }
+  .description a {
+    color: #1d2441;
+    text-decoration: none; }
+  .description a:visited {
+    color: #3C4C88; }
+  .description a:hover, .description a:focus {
+    color: #3C4C88;
+    text-decoration: underline; }
+  .description .moz-link {
+    padding-left: 24px;
+    position: relative;
+    display: block;
+    background: url("moz.png") no-repeat left center;
+    word-break: break-word; }
+.atmnumber{
+	font-size: 80%;
+}
+.element.group-base {
+  background-color: #d48489; }
+  .element.group-base:hover {
+    background-color: #e1aaad; }
+
+.description.group-base {
+  background-color: rgba(225, 170, 173, 0.5); }
+  .description.group-base:hover {
+    background-color: rgba(212, 132, 137, 0.8); }
+
+.key li.group-base:before {
+  background-color: #d48489; }
+
+.hover-group-base .element {
+  opacity: .5; }
+
+.hover-group-base .element.group-base {
+  opacity: 1; }
+
+.element.group-metadata {
+  background-color: #d49384; }
+  .element.group-metadata:hover {
+    background-color: #e1b4aa; }
+
+.description.group-metadata {
+  background-color: rgba(225, 180, 170, 0.5); }
+  .description.group-metadata:hover {
+    background-color: rgba(212, 147, 132, 0.8); }
+
+.key li.group-metadata:before {
+  background-color: #d49384; }
+
+.hover-group-metadata .element {
+  opacity: .5; }
+
+.hover-group-metadata .element.group-metadata {
+  opacity: 1; }
+
+.element.group-sectioning {
+  background-color: #d4a784; }
+  .element.group-sectioning:hover {
+    background-color: #e1c2aa; }
+
+.description.group-sectioning {
+  background-color: rgba(225, 194, 170, 0.5); }
+  .description.group-sectioning:hover {
+    background-color: rgba(212, 167, 132, 0.8); }
+
+.key li.group-sectioning:before {
+  background-color: #d4a784; }
+
+.hover-group-sectioning .element {
+  opacity: .5; }
+
+.hover-group-sectioning .element.group-sectioning {
+  opacity: 1; }
+
+.element.group-text-content {
+  background-color: #d4bb84; }
+  .element.group-text-content:hover {
+    background-color: #e1d0aa; }
+
+.description.group-text-content {
+  background-color: rgba(225, 208, 170, 0.5); }
+  .description.group-text-content:hover {
+    background-color: rgba(212, 187, 132, 0.8); }
+
+.key li.group-text-content:before {
+  background-color: #d4bb84; }
+
+.hover-group-text-content .element {
+  opacity: .5; }
+
+.hover-group-text-content .element.group-text-content {
+  opacity: 1; }
+
+.element.group-text-semantics {
+  background-color: #d4cf84; }
+  .element.group-text-semantics:hover {
+    background-color: #e1deaa; }
+
+.description.group-text-semantics {
+  background-color: rgba(225, 222, 170, 0.5); }
+  .description.group-text-semantics:hover {
+    background-color: rgba(212, 207, 132, 0.8); }
+
+.key li.group-text-semantics:before {
+  background-color: #d4cf84; }
+
+.hover-group-text-semantics .element {
+  opacity: .5; }
+
+.hover-group-text-semantics .element.group-text-semantics {
+  opacity: 1; }
+
+.element.group-media {
+  background-color: #c5d484; }
+  .element.group-media:hover {
+    background-color: #d7e1aa; }
+
+.description.group-media {
+  background-color: rgba(215, 225, 170, 0.5); }
+  .description.group-media:hover {
+    background-color: rgba(197, 212, 132, 0.8); }
+
+.key li.group-media:before {
+  background-color: #c5d484; }
+
+.hover-group-media .element {
+  opacity: .5; }
+
+.hover-group-media .element.group-media {
+  opacity: 1; }
+
+.element.group-embedded {
+  background-color: #b1d484; }
+  .element.group-embedded:hover {
+    background-color: #c9e1aa; }
+
+.description.group-embedded {
+  background-color: rgba(201, 225, 170, 0.5); }
+  .description.group-embedded:hover {
+    background-color: rgba(177, 212, 132, 0.8); }
+
+.key li.group-embedded:before {
+  background-color: #b1d484; }
+
+.hover-group-embedded .element {
+  opacity: .5; }
+
+.hover-group-embedded .element.group-embedded {
+  opacity: 1; }
+
+.element.group-script {
+  background-color: #9dd484; }
+  .element.group-script:hover {
+    background-color: #bbe1aa; }
+
+.description.group-script {
+  background-color: rgba(187, 225, 170, 0.5); }
+  .description.group-script:hover {
+    background-color: rgba(157, 212, 132, 0.8); }
+
+.key li.group-script:before {
+  background-color: #9dd484; }
+
+.hover-group-script .element {
+  opacity: .5; }
+
+.hover-group-script .element.group-script {
+  opacity: 1; }
+
+.element.group-edits {
+  background-color: #89d484; }
+  .element.group-edits:hover {
+    background-color: #ade1aa; }
+
+.description.group-edits {
+  background-color: rgba(173, 225, 170, 0.5); }
+  .description.group-edits:hover {
+    background-color: rgba(137, 212, 132, 0.8); }
+
+.key li.group-edits:before {
+  background-color: #89d484; }
+
+.hover-group-edits .element {
+  opacity: .5; }
+
+.hover-group-edits .element.group-edits {
+  opacity: 1; }
+
+.element.group-table {
+  background-color: #84d493; }
+  .element.group-table:hover {
+    background-color: #aae1b4; }
+
+.description.group-table {
+  background-color: rgba(170, 225, 180, 0.5); }
+  .description.group-table:hover {
+    background-color: rgba(132, 212, 147, 0.8); }
+
+.key li.group-table:before {
+  background-color: #84d493; }
+
+.hover-group-table .element {
+  opacity: .5; }
+
+.hover-group-table .element.group-table {
+  opacity: 1; }
+
+.element.group-forms {
+  background-color: #84d4a7; }
+  .element.group-forms:hover {
+    background-color: #aae1c2; }
+
+.description.group-forms {
+  background-color: rgba(170, 225, 194, 0.5); }
+  .description.group-forms:hover {
+    background-color: rgba(132, 212, 167, 0.8); }
+
+.key li.group-forms:before {
+  background-color: #84d4a7; }
+
+.hover-group-forms .element {
+  opacity: .5; }
+
+.hover-group-forms .element.group-forms {
+  opacity: 1; }
+
+.element.group-interactive {
+  background-color: #84d4bb; }
+  .element.group-interactive:hover {
+    background-color: #aae1d0; }
+
+.description.group-interactive {
+  background-color: rgba(170, 225, 208, 0.5); }
+  .description.group-interactive:hover {
+    background-color: rgba(132, 212, 187, 0.8); }
+
+.key li.group-interactive:before {
+  background-color: #84d4bb; }
+
+.hover-group-interactive .element {
+  opacity: .5; }
+
+.hover-group-interactive .element.group-interactive {
+  opacity: 1; }
+
+.element.group-web-components {
+  background-color: #84d4cf; }
+  .element.group-web-components:hover {
+    background-color: #aae1de; }
+
+.description.group-web-components {
+  background-color: rgba(170, 225, 222, 0.5); }
+  .description.group-web-components:hover {
+    background-color: rgba(132, 212, 207, 0.8); }
+
+.key li.group-web-components:before {
+  background-color: #84d4cf; }
+
+.hover-group-web-components .element {
+  opacity: .5; }
+
+.hover-group-web-components .element.group-web-components {
+  opacity: 1; }
+</style>
+	</head>
+	<body>
+		<main>
+			<div class="elements">
+
+
+	<div class="row">
+      {% if 1_1 %}
+  		<a href="{% url 'elements:element_detail' 1_1.symbol %}" style="background-color:#{{1_1.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{1_1.atomic_number}}</div>
+				<div class="symbol">{{1_1.symbol}}</div>
+				<div class="name">{{1_1.name}}</div>
+			</a>
+      {% else %}
+      <div class="element empty-element"></div>
+      {% endif %}
+  		<div class="element empty-element"></div>
+  		<div class="element empty-element"></div>
+  		<div class="element empty-element"></div>
+  		<div class="element empty-element"></div>
+  		<div class="element empty-element"></div>
+  		<div class="element empty-element"></div>
+  		<div class="element empty-element"></div>
+  		<div class="element empty-element"></div>
+  		<div class="element empty-element"></div>
+  		<div class="element empty-element"></div>
+  		<div class="element empty-element"></div>
+  		<div class="element empty-element"></div>
+  		<div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+      {% if 1_18 %}
+			<a href="{% url 'elements:element_detail' 1_18.symbol %}" style="background-color:#{{1_18.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{1_18.atomic_number}}</div>
+				<div class="symbol">{{1_18.symbol}}</div>
+				<div class="name">{{1_18.name}}</div>
+			</a>
+      {% else %}
+      <div class="element empty-element"></div>
+      {% endif %}
+  	</div>
+
+    <div class="row">
+      {% if 2_1 %}
+			<a href="{% url 'elements:element_detail' 2_1.symbol %}" style="background-color:#{{2_1.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{2_1.atomic_number}}</div>
+				<div class="symbol">{{2_1.symbol}}</div>
+				<div class="name">{{2_1.name}}</div>
+			</a>
+      {% else %}
+      <div class="element empty-element"></div>
+      {% endif %}
+
+      {% if 2_2 %}
+			<a href="{% url 'elements:element_detail' 2_2.symbol %}" style="background-color:#{{2_2.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{2_2.atomic_number}}</div>
+				<div class="symbol">{{2_2.symbol}}</div>
+				<div class="name">{{2_2.name}}</div>
+			</a>
+      {% else %}
+      <div class="element empty-element"></div>
+      {% endif %}
+
+      <div class="element empty-element"></div>
+      <div class="element empty-element"></div>
+      <div class="element empty-element"></div>
+      <div class="element empty-element"></div>
+      <div class="element empty-element"></div>
+      <div class="element empty-element"></div>
+      <div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+
+      {% if 2_13 %}
+			<a href="{% url 'elements:element_detail' 2_13.symbol %}" style="background-color:#{{2_13.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{2_13.atomic_number}}</div>
+				<div class="symbol">{{2_13.symbol}}</div>
+				<div class="name">{{2_13.name}}</div>
+			</a>
+      {% else %}
+      <div class="element empty-element"></div>
+      {% endif %}
+
+      {% if 2_14 %}
+			<a href="{% url 'elements:element_detail' 2_14.symbol %}" style="background-color:#{{2_14.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{2_14.atomic_number}}</div>
+				<div class="symbol">{{2_14.symbol}}</div>
+				<div class="name">{{2_14.name}}</div>
+			</a>
+      {% else %}
+      <div class="element empty-element"></div>
+      {% endif %}
+
+      {% if 2_15 %}
+			<a href="{% url 'elements:element_detail' 2_15.symbol %}" style="background-color:#{{2_15.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{2_15.atomic_number}}</div>
+				<div class="symbol">{{2_15.symbol}}</div>
+				<div class="name">{{2_15.name}}</div>
+			</a>
+      {% else %}
+      <div class="element empty-element"></div>
+      {% endif %}
+
+      {% if 2_16 %}
+			<a href="{% url 'elements:element_detail' 2_16.symbol %}" style="background-color:#{{2_16.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{2_16.atomic_number}}</div>
+				<div class="symbol">{{2_16.symbol}}</div>
+				<div class="name">{{2_16.name}}</div>
+			</a>
+      {% else %}
+      <div class="element empty-element"></div>
+      {% endif %}
+
+      {% if 2_17 %}
+			<a href="{% url 'elements:element_detail' 2_17.symbol %}" style="background-color:#{{2_17.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{2_17.atomic_number}}</div>
+				<div class="symbol">{{2_17.symbol}}</div>
+				<div class="name">{{2_17.name}}</div>
+			</a>
+      {% else %}
+      <div class="element empty-element"></div>
+      {% endif %}
+
+      {% if 2_18 %}
+			<a href="{% url 'elements:element_detail' 2_18.symbol %}" style="background-color:#{{2_18.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{2_18.atomic_number}}</div>
+				<div class="symbol">{{2_18.symbol}}</div>
+				<div class="name">{{2_18.name}}</div>
+			</a>
+      {% else %}
+      <div class="element empty-element"></div>
+      {% endif %}
+  	</div>
+
+
+		<div class="row">
+			{% if 3_1 %}
+			<a href="{% url 'elements:element_detail' 3_1.symbol %}" style="background-color:#{{3_1.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{3_1.atomic_number}}</div>
+				<div class="symbol">{{3_1.symbol}}</div>
+				<div class="name">{{3_1.name}}</div>
+			</a>
+			{% else %}
+			<div class="element empty-element"></div>
+			{% endif %}
+
+			{% if 3_2 %}
+			<a href="{% url 'elements:element_detail' 3_2.symbol %}" style="background-color:#{{3_2.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{3_2.atomic_number}}</div>
+				<div class="symbol">{{3_2.symbol}}</div>
+				<div class="name">{{3_2.name}}</div>
+			</a>
+			{% else %}
+			<div class="element empty-element"></div>
+			{% endif %}
+
+
+			<div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+			<div class="element empty-element"></div>
+
+			{% if 3_13 %}
+			<a href="{% url 'elements:element_detail' 3_13.symbol %}" style="background-color:#{{3_13.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{3_13.atomic_number}}</div>
+				<div class="symbol">{{3_13.symbol}}</div>
+				<div class="name">{{3_13.name}}</div>
+			</a>
+			{% else %}
+			<div class="element empty-element"></div>
+			{% endif %}
+
+			{% if 3_14 %}
+			<a href="{% url 'elements:element_detail' 3_14.symbol %}" style="background-color:#{{3_14.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{3_14.atomic_number}}</div>
+				<div class="symbol">{{3_14.symbol}}</div>
+				<div class="name">{{3_14.name}}</div>
+			</a>
+			{% else %}
+			<div class="element empty-element"></div>
+			{% endif %}
+
+			{% if 3_15 %}
+			<a href="{% url 'elements:element_detail' 3_15.symbol %}" style="background-color:#{{3_15.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{3_15.atomic_number}}</div>
+				<div class="symbol">{{3_15.symbol}}</div>
+				<div class="name">{{3_15.name}}</div>
+			</a>
+			{% else %}
+			<div class="element empty-element"></div>
+			{% endif %}
+
+			{% if 3_16 %}
+			<a href="{% url 'elements:element_detail' 3_16.symbol %}" style="background-color:#{{3_16.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{3_16.atomic_number}}</div>
+				<div class="symbol">{{3_16.symbol}}</div>
+				<div class="name">{{3_16.name}}</div>
+			</a>
+			{% else %}
+			<div class="element empty-element"></div>
+			{% endif %}
+
+			{% if 3_17 %}
+			<a href="{% url 'elements:element_detail' 3_17.symbol %}" style="background-color:#{{3_17.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{3_17.atomic_number}}</div>
+				<div class="symbol">{{3_17.symbol}}</div>
+				<div class="name">{{3_17.name}}</div>
+			</a>
+			{% else %}
+			<div class="element empty-element"></div>
+			{% endif %}
+
+			{% if 3_18 %}
+			<a href="{% url 'elements:element_detail' 3_18.symbol %}" style="background-color:#{{3_18.cpx_hex_color}}"  class="element">
+				<div class="atmnumber">{{3_18.atomic_number}}</div>
+				<div class="symbol">{{3_18.symbol}}</div>
+				<div class="name">{{3_18.name}}</div>
+			</a>
+			{% else %}
+			<div class="element empty-element"></div>
+			{% endif %}
+
+		</div>
+
+	<div class="row">
+		{% if 4_1 %}
+		<a href="{% url 'elements:element_detail' 4_1.symbol %}" style="background-color:#{{4_1.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_1.atomic_number}}</div>
+			<div class="symbol">{{4_1.symbol}}</div>
+			<div class="name">{{4_1.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_2 %}
+		<a href="{% url 'elements:element_detail' 4_2.symbol %}" style="background-color:#{{4_2.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_2.atomic_number}}</div>
+			<div class="symbol">{{4_2.symbol}}</div>
+			<div class="name">{{4_2.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_3 %}
+		<a href="{% url 'elements:element_detail' 4_3.symbol %}" style="background-color:#{{4_3.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_3.atomic_number}}</div>
+			<div class="symbol">{{4_3.symbol}}</div>
+			<div class="name">{{4_3.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_4 %}
+		<a href="{% url 'elements:element_detail' 4_4.symbol %}" style="background-color:#{{4_4.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_4.atomic_number}}</div>
+			<div class="symbol">{{4_4.symbol}}</div>
+			<div class="name">{{4_4.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_5 %}
+		<a href="{% url 'elements:element_detail' 4_5.symbol %}" style="background-color:#{{4_5.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_5.atomic_number}}</div>
+			<div class="symbol">{{4_5.symbol}}</div>
+			<div class="name">{{4_5.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_6 %}
+		<a href="{% url 'elements:element_detail' 4_6.symbol %}" style="background-color:#{{4_6.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_6.atomic_number}}</div>
+			<div class="symbol">{{4_6.symbol}}</div>
+			<div class="name">{{4_6.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_7 %}
+		<a href="{% url 'elements:element_detail' 4_7.symbol %}" style="background-color:#{{4_7.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_7.atomic_number}}</div>
+			<div class="symbol">{{4_7.symbol}}</div>
+			<div class="name">{{4_7.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_8 %}
+		<a href="{% url 'elements:element_detail' 4_8.symbol %}" style="background-color:#{{4_8.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_8.atomic_number}}</div>
+			<div class="symbol">{{4_8.symbol}}</div>
+			<div class="name">{{4_8.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_9 %}
+		<a href="{% url 'elements:element_detail' 4_9.symbol %}" style="background-color:#{{4_9.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_9.atomic_number}}</div>
+			<div class="symbol">{{4_9.symbol}}</div>
+			<div class="name">{{4_9.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_10 %}
+		<a href="{% url 'elements:element_detail' 4_10.symbol %}" style="background-color:#{{4_10.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_10.atomic_number}}</div>
+			<div class="symbol">{{4_10.symbol}}</div>
+			<div class="name">{{4_10.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_11 %}
+		<a href="{% url 'elements:element_detail' 4_11.symbol %}" style="background-color:#{{4_11.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_11.atomic_number}}</div>
+			<div class="symbol">{{4_11.symbol}}</div>
+			<div class="name">{{4_11.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_12 %}
+		<a href="{% url 'elements:element_detail' 4_12.symbol %}" style="background-color:#{{4_12.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_12.atomic_number}}</div>
+			<div class="symbol">{{4_12.symbol}}</div>
+			<div class="name">{{4_12.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_13 %}
+		<a href="{% url 'elements:element_detail' 4_13.symbol %}" style="background-color:#{{4_13.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_13.atomic_number}}</div>
+			<div class="symbol">{{4_13.symbol}}</div>
+			<div class="name">{{4_13.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_14 %}
+		<a href="{% url 'elements:element_detail' 4_14.symbol %}" style="background-color:#{{4_14.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{4_14.atomic_number}}</div>
+			<div class="symbol">{{4_14.symbol}}</div>
+			<div class="name">{{4_14.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_15 %}
+		<a href="{% url 'elements:element_detail' 4_15.symbol %}" style="background-color:#{{4_15.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_15.atomic_number}}</div>
+			<div class="symbol">{{4_15.symbol}}</div>
+			<div class="name">{{4_15.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_16 %}
+		<a href="{% url 'elements:element_detail' 4_16.symbol %}" style="background-color:#{{4_16.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_16.atomic_number}}</div>
+			<div class="symbol">{{4_16.symbol}}</div>
+			<div class="name">{{4_16.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_17 %}
+		<a href="{% url 'elements:element_detail' 4_17.symbol %}" style="background-color:#{{4_17.cpx_hex_color}}"  class="element">
+			<div class="atmnumber">{{4_17.atomic_number}}</div>
+			<div class="symbol">{{4_17.symbol}}</div>
+			<div class="name">{{4_17.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 4_18 %}
+		<a href="{% url 'elements:element_detail' 4_18.symbol %}" style="background-color:#{{4_18.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{4_18.atomic_number}}</div>
+			<div class="symbol">{{4_18.symbol}}</div>
+			<div class="name">{{4_18.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+	</div>
+
+
+	<div class="row">
+		{% if 5_1 %}
+		<a href="{% url 'elements:element_detail' 5_1.symbol %}" style="background-color:#{{5_1.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_1.atomic_number}}</div>
+			<div class="symbol">{{5_1.symbol}}</div>
+			<div class="name">{{5_1.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_2 %}
+		<a href="{% url 'elements:element_detail' 5_2.symbol %}" style="background-color:#{{5_2.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_2.atomic_number}}</div>
+			<div class="symbol">{{5_2.symbol}}</div>
+			<div class="name">{{5_2.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_3 %}
+		<a href="{% url 'elements:element_detail' 5_3.symbol %}" style="background-color:#{{5_3.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_3.atomic_number}}</div>
+			<div class="symbol">{{5_3.symbol}}</div>
+			<div class="name">{{5_3.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_4 %}
+		<a href="{% url 'elements:element_detail' 5_4.symbol %}" style="background-color:#{{5_4.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_4.atomic_number}}</div>
+			<div class="symbol">{{5_4.symbol}}</div>
+			<div class="name">{{5_4.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_5 %}
+		<a href="{% url 'elements:element_detail' 5_5.symbol %}" style="background-color:#{{5_5.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_5.atomic_number}}</div>
+			<div class="symbol">{{5_5.symbol}}</div>
+			<div class="name">{{5_5.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_6 %}
+		<a href="{% url 'elements:element_detail' 5_6.symbol %}" style="background-color:#{{5_6.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_6.atomic_number}}</div>
+			<div class="symbol">{{5_6.symbol}}</div>
+			<div class="name">{{5_6.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_7 %}
+		<a href="{% url 'elements:element_detail' 5_7.symbol %}" style="background-color:#{{5_7.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_7.atomic_number}}</div>
+			<div class="symbol">{{5_7.symbol}}</div>
+			<div class="name">{{5_7.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_8 %}
+		<a href="{% url 'elements:element_detail' 5_8.symbol %}" style="background-color:#{{5_8.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_8.atomic_number}}</div>
+			<div class="symbol">{{5_8.symbol}}</div>
+			<div class="name">{{5_8.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_9 %}
+		<a href="{% url 'elements:element_detail' 5_9.symbol %}" style="background-color:#{{5_9.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_9.atomic_number}}</div>
+			<div class="symbol">{{5_9.symbol}}</div>
+			<div class="name">{{5_9.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_10 %}
+		<a href="{% url 'elements:element_detail' 5_10.symbol %}" style="background-color:#{{5_10.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_10.atomic_number}}</div>
+			<div class="symbol">{{5_10.symbol}}</div>
+			<div class="name">{{5_10.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_11 %}
+		<a href="{% url 'elements:element_detail' 5_11.symbol %}" style="background-color:#{{5_11.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_11.atomic_number}}</div>
+			<div class="symbol">{{5_11.symbol}}</div>
+			<div class="name">{{5_11.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_12 %}
+		<a href="{% url 'elements:element_detail' 5_12.symbol %}" style="background-color:#{{5_12.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_12.atomic_number}}</div>
+			<div class="symbol">{{5_12.symbol}}</div>
+			<div class="name">{{5_12.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_13 %}
+		<a href="{% url 'elements:element_detail' 5_13.symbol %}" style="background-color:#{{5_13.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_13.atomic_number}}</div>
+			<div class="symbol">{{5_13.symbol}}</div>
+			<div class="name">{{5_13.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_14 %}
+		<a href="{% url 'elements:element_detail' 5_14.symbol %}" style="background-color:#{{5_14.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_14.atomic_number}}</div>
+			<div class="symbol">{{5_14.symbol}}</div>
+			<div class="name">{{5_14.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_15 %}
+		<a href="{% url 'elements:element_detail' 5_15.symbol %}" style="background-color:#{{5_15.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_15.atomic_number}}</div>
+			<div class="symbol">{{5_15.symbol}}</div>
+			<div class="name">{{5_15.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_16 %}
+		<a href="{% url 'elements:element_detail' 5_16.symbol %}" style="background-color:#{{5_16.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_16.atomic_number}}</div>
+			<div class="symbol">{{5_16.symbol}}</div>
+			<div class="name">{{5_16.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_17 %}
+		<a href="{% url 'elements:element_detail' 5_17.symbol %}" style="background-color:#{{5_17.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_17.atomic_number}}</div>
+			<div class="symbol">{{5_17.symbol}}</div>
+			<div class="name">{{5_17.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+
+		{% if 5_18 %}
+		<a href="{% url 'elements:element_detail' 5_18.symbol %}" style="background-color:#{{5_18.cpx_hex_color}}" class="element">
+			<div class="atmnumber">{{5_18.atomic_number}}</div>
+			<div class="symbol">{{5_18.symbol}}</div>
+			<div class="name">{{5_18.name}}</div>
+		</a>
+		{% else %}
+		<div class="element empty-element"></div>
+		{% endif %}
+	</div>
+
+
+		</main>
+	</body>
+</html>
